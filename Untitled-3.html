@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+	  <meta charset="utf-8">
+	  <title>HTML</title>
+	<style>
+.contenedor{
+position:absolute;
+left: 20px;
+top: 20px;
+right: 20px;
+bottom: 20px;
+background-color: green;
+overflow: hidden;
+}
+.contenedor > div{
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    left: 0px;
+    background-color: yellow;
+    transition: left 5s, transform 5s;
+    
+    
+}
+.contenedor > div:nth-of-type(1){
+    top: 0px;
+    
+}
+.contenedor > div:nth-of-type(2){
+    top: 120px;
+}
+.contenedor > div:nth-of-type(3){
+    top: 240px;
+}
+.contenedor > div:nth-of-type(4){
+    top: 360px;
+}
+.contenedor > div:nth-of-type(2n+1){
+    font-size: 100px;
+}
+
+	</style>
+    <script>
+        function sal_corriendo(elemento){
+            elemento.style.left="2000px";
+        }
+        function desaparecer(){
+            var elemento = document.querySelector(".contenedor > div:nth-of-type(3)");
+            elemento.style.display="none";
+        }
+        function girar(){
+            var elemento = document.getElementById("4div");
+            if(elemento.style.transform == "rotateZ(180deg)"){
+                elemento.style.left="0px"
+                elemento.style.transform = "rotateZ(0deg)";
+              
+            }else{
+                elemento.style.left="2000px";
+                elemento.style.transform = "rotateZ(180deg)"
+               
+            }
+            
+        }
+    </script>
+	</head>
+	
+	
+<div class="contenedor">
+    <div onclick="sal_corriendo(this);">A</div>
+    <div>B</div>
+    <div onclick="desaparecer();">C</div>
+    <div id="4div" onclick="girar();">R</div>
+</div>
+	
+	</body>
+</html>
